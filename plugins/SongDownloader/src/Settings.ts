@@ -36,7 +36,6 @@ export const Settings = () => html`<div style="display: grid; grid-gap: 20px; ma
 		onClick=${() => (settings.alwaysUseDefaultPath = !settings.alwaysUseDefaultPath)}
 		title="Skip save prompt (requires default path)"
 	/>
-	<${SwitchSetting} checked=${settings.useRealMAX} onClick=${() => (settings.useRealMAX = !settings.useRealMAX)} title="Use RealMAX to find the highest quality" />
 	<${TextInput}
 		text=${settings.filenameFormat}
 		onText=${(text: string) => {
