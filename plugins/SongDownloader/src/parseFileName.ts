@@ -14,12 +14,11 @@ const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: Ex
 		if (Array.isArray(tagValue)) tagValue = tagValue[0];
 		if (tagValue === undefined) continue;
 
-		// Handle the "date" tag to extract only the year
 		if (tag === "date" && typeof tagValue === "string") {
 			try {
 				const date = new Date(tagValue);
 				if (!isNaN(date.getTime())) {
-					tagValue = date.getFullYear().toString(); // Extract only the year
+					tagValue = date.getFullYear().toString();
 				}
 			} catch (error) {
 				console.warn(`Failed to parse date tag: ${tagValue}`, error);
