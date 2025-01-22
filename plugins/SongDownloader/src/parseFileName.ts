@@ -13,6 +13,19 @@ const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: Ex
 		let tagValue = tags[tag];
 		if (Array.isArray(tagValue)) tagValue = tagValue[0];
 		if (tagValue === undefined) continue;
+
+		// Handle the "date" tag to extract only the year
+		if (tag === "date" && typeof tagValue === "string") {
+			try {
+				const date = new Date(tagValue);
+				if (!isNaN(date.getTime())) {
+					tagValue = date.getFullYear().toString(); // Extract only the year
+				}
+			} catch (error) {
+				console.warn(`Failed to parse date tag: ${tagValue}`, error);
+			}
+		}
+
 		base = base.replaceAll(`{${tag}}`, sanitizeFilename(tagValue));
 	}
 	switch (manifestMimeType) {
@@ -28,6 +41,7 @@ const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: Ex
 		}
 	}
 };
+
 
 export const pathSeparator = navigator.userAgent.includes("Win") ? "\\" : "/";
 

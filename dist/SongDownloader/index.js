@@ -18,7 +18,7 @@ var ee=(r,e)=>{let t=null;function i(){t?.remove(),t=null}function a(s){e&&(t=do
 			<input id="switch-${t}" class="neptune-switch-checkbox" type="checkbox" checked=${r} />
 			<span onClick=${e} class="neptune-switch" />
 		<//>
-	`);var N="{artist} - {album} - {title}",c=ne({desiredDownloadQuality:"HI_RES_LOSSLESS",defaultDownloadPath:"",alwaysUseDefaultPath:!1,filenameFormat:N,useRealMAX:!0});c.filenameFormat===""&&(c.filenameFormat=N);c.filenameFormat==="artist - album - title"&&(c.filenameFormat=N);var je=()=>Ve`<div style="display: grid; grid-gap: 20px; margin-top: 20px;">
+	`);var N="{artist} - {album} - {title}",c=ne({desiredDownloadQuality:"HI_RES_LOSSLESS",defaultDownloadPath:"",alwaysUseDefaultPath:!1,filenameFormat:N,useRealMAX:!1});c.filenameFormat===""&&(c.filenameFormat=N);c.filenameFormat==="artist - album - title"&&(c.filenameFormat=N);var je=()=>Ve`<div style="display: grid; grid-gap: 20px; margin-top: 20px;">
 	<${ue}
 		selected=${c.desiredDownloadQuality}
 		onSelect=${r=>c.desiredDownloadQuality=r}
