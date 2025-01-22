@@ -1,0 +1,51 @@
+import _for from './for';
+import _if from './if';
+import _switch from './switch';
+import type { ObservableOptions, Observable } from '../types';
+declare function $<T>(): Observable<T | undefined>;
+declare function $<T>(value: undefined, options?: ObservableOptions<T | undefined>): Observable<T | undefined>;
+declare function $<T>(value: T, options?: ObservableOptions<T>): Observable<T>;
+declare namespace $ {
+    export var batch: <T>(fn: import("../types").BatchFunction<T>) => Promise<Awaited<T>>;
+    export var boolean: (value: unknown) => import("../types").FunctionMaybe<boolean>;
+    export var cleanup: (fn: import("../types").Callable<import("../types").CleanupFunction>) => void;
+    export var context: typeof import("./context").default;
+    export var disposed: () => import("../types").ObservableReadonly<boolean>;
+    export var effect: (fn: import("../types").EffectFunction, options?: import("../types").EffectOptions | undefined) => import("../types").DisposeFunction;
+    var _a: typeof _for;
+    export var get: typeof import("./get").default;
+    var _b: typeof _if;
+    export var isBatching: () => boolean;
+    export var isObservable: <T = unknown>(value: unknown) => value is Observable<T> | import("../types").ObservableReadonly<T>;
+    export var isStore: (value: unknown) => boolean;
+    export var memo: <T>(fn: import("../types").MemoFunction<T>, options?: import("../types").MemoOptions<T | undefined> | undefined) => import("../types").ObservableReadonly<T>;
+    export var observable: typeof import("./observable").default;
+    export var owner: () => import("../types").Owner;
+    export var readonly: <T>(observable: Observable<T> | import("../types").ObservableReadonly<T>) => import("../types").ObservableReadonly<T>;
+    export var resolve: typeof import("./resolve").default;
+    export var root: <T>(fn: import("../types").WrappedDisposableFunction<T>) => T;
+    export var selector: <T>(source: () => T) => import("../types").SelectorFunction<T>;
+    export var store: {
+        <T>(value: T, options?: import("../types").StoreOptions | undefined): T;
+        on(target: import("../types").ArrayMaybe<{
+            [x: string]: any;
+            [x: number]: any;
+            [x: symbol]: any;
+        } | (() => void)>, listener: import("../types").CallbackFunction): import("../types").DisposeFunction;
+        _onRoots<K extends string | number | symbol, V extends unknown>(target: Record<K, V>, listener: (roots: V[]) => void): import("../types").DisposeFunction;
+        reconcile: <T_1 extends any[] | Record<string | number | symbol, any>>(prev: T_1, next: T_1) => T_1;
+        untrack<T_2>(value: T_2): T_2;
+        unwrap<T_3>(value: T_3): T_3;
+    };
+    export var suspended: () => import("../types").ObservableReadonly<boolean>;
+    export var suspense: <T>(when: unknown, fn: import("../types").SuspenseFunction<T>) => T;
+    var _c: typeof _switch;
+    export var ternary: <T, F>(when: unknown, valueTrue: T, valueFalse: F) => import("../types").ObservableReadonly<T | F>;
+    export var tick: () => void;
+    export var tryCatch: <T, F>(value: T, fn: import("../types").TryCatchFunction<F>) => import("../types").ObservableReadonly<T | F>;
+    export var untrack: typeof import("./untrack").default;
+    export var untracked: typeof import("./untracked").default;
+    var _d: () => <T>(fn: import("../types").WithFunction<T>) => T;
+    export { _a as for, _b as if, _c as switch, _d as with };
+}
+export default $;

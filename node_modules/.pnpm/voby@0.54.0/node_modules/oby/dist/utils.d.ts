@@ -1,0 +1,11 @@
+declare const castArray: <T>(value: T | T[]) => T[];
+declare const castError: (error: unknown) => Error;
+declare const is: (value1: any, value2: any) => boolean;
+declare const isArray: (arg: any) => arg is any[];
+declare const isEqual: (a: unknown[], b: unknown[]) => boolean;
+declare const isFunction: (value: unknown) => value is Function;
+declare const isObject: (value: unknown) => value is Record<string | number | symbol, unknown>;
+declare const isSymbol: (value: unknown) => value is symbol;
+declare const noop: () => void;
+declare const nope: () => false;
+export { castArray, castError, is, isArray, isEqual, isFunction, isObject, isSymbol, noop, nope };

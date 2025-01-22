@@ -1,0 +1,11 @@
+declare const DIRTY_NO: number;
+declare const DIRTY_MAYBE_NO: number;
+declare const DIRTY_MAYBE_YES: number;
+declare const DIRTY_YES: number;
+declare const OBSERVABLE_FALSE: import("./types").ObservableReadonly<boolean>;
+declare const OBSERVABLE_TRUE: import("./types").ObservableReadonly<boolean>;
+declare const UNAVAILABLE: any;
+declare const UNINITIALIZED: any;
+export { DIRTY_NO, DIRTY_MAYBE_NO, DIRTY_MAYBE_YES, DIRTY_YES };
+export { OBSERVABLE_FALSE, OBSERVABLE_TRUE };
+export { UNAVAILABLE, UNINITIALIZED };

@@ -1,0 +1,11 @@
+import SuperRoot from './objects/superroot';
+import type { IContext, IObserver, IRoot, ISuperRoot, ISuspense } from './types';
+declare let BATCH: Promise<void> | undefined;
+declare let SUPER_OWNER: ISuperRoot;
+declare let OBSERVER: IObserver | undefined;
+declare let OWNER: IContext | IObserver | IRoot | ISuperRoot | ISuspense;
+declare const setBatch: (value: Promise<void> | undefined) => Promise<void> | undefined;
+declare const setObserver: (value: IObserver | undefined) => import("./objects/observer").default | undefined;
+declare const setOwner: (value: IContext | IObserver | IRoot | ISuperRoot | ISuspense) => import("./objects/context").default | import("./objects/observer").default | import("./objects/root").default | import("./objects/suspense").default | SuperRoot;
+export { BATCH, OBSERVER, OWNER, SUPER_OWNER };
+export { setBatch, setObserver, setOwner };
