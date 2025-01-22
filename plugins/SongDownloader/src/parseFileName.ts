@@ -4,7 +4,7 @@ import { settings } from "./Settings";
 import type { PathInfo } from "@inrixia/lib/native/downloadTrack.native";
 
 const unsafeCharacters = /[\/:*?"<>|]/g;
-const sanitizeFilename = (filename: string): string => filename.replace(unsafeCharacters, "_");
+const sanitizeFilename = (filename: string): string => filename.replace(unsafeCharacters, "");
 
 export const parseExtension = (filename: string) => filename.match(/\.([0-9a-z]+)(?:[\?#]|$)/i)?.[1] ?? undefined;
 const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: ExtendedPlayackInfo): string => {
