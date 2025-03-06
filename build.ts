@@ -9,7 +9,7 @@ const nativeExternals = ["@neptune", "@plugin", "electron"];
 const minify = true;
 
 // Based on Vencord's file-uri-plugin
-// https://github.com/Vendicated/Vencord/blob/main/scripts/build/common.mjs
+// https://github.com/Vendicated/Vencord/blob/main/scripts/build/common.mjs 
 const fileUrl: esbuild.Plugin = {
 	name: "fileUrl",
 	setup: (build) => {
