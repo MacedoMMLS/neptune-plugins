@@ -12,7 +12,7 @@ export const settings = getSettings({
 	defaultDownloadPath: "",
 	alwaysUseDefaultPath: false,
 	filenameFormat: defaultFilenameFormat,
-	useRealMAX: true,
+	useRealMAX: false,
 });
 if (settings.filenameFormat === "") settings.filenameFormat = defaultFilenameFormat;
 if (settings.filenameFormat === "artist - album - title") settings.filenameFormat = defaultFilenameFormat;
@@ -36,7 +36,6 @@ export const Settings = () => html`<div style="display: grid; grid-gap: 20px; ma
 		onClick=${() => (settings.alwaysUseDefaultPath = !settings.alwaysUseDefaultPath)}
 		title="Skip save prompt (requires default path)"
 	/>
-	<${SwitchSetting} checked=${settings.useRealMAX} onClick=${() => (settings.useRealMAX = !settings.useRealMAX)} title="Use RealMAX to find the highest quality" />
 	<${TextInput}
 		text=${settings.filenameFormat}
 		onText=${(text: string) => {
