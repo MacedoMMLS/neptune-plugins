@@ -43,6 +43,6 @@ export const Settings = () => html`<div style="display: grid; grid-gap: 20px; ma
 			else settings.filenameFormat = text;
 		}}
 		title="Filename format"
-		tooltip="Availble tags: ${availableTags.join(", ")}"
+		tooltip="Avaialble tags: ${availableTags.join(", ")}"
 	/>
 </div>`;
