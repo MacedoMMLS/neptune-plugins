@@ -9,5 +9,3 @@ If you like the project, and want to support me can to throw some bits at my [Sp
 To install any of these plugins you need to have the [Tidal Neptune Client](https://github.com/Inrixia/neptunectl/releases/tag/latest) installed.
 
 Then just paste the **Install Url** into the plugins page and hit enter.
-
-![image](https://github.com/Inrixia/neptune-plugins/assets/6373693/a997156c-a281-46ec-992a-397a742dd146)
