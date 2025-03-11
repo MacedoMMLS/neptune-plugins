@@ -12,7 +12,7 @@ export const settings = getSettings({
 	defaultDownloadPath: "",
 	alwaysUseDefaultPath: false,
 	filenameFormat: defaultFilenameFormat,
-	useRealMAX: false,
+	useRealMAX: true,
 });
 if (settings.filenameFormat === "") settings.filenameFormat = defaultFilenameFormat;
 if (settings.filenameFormat === "artist - album - title") settings.filenameFormat = defaultFilenameFormat;
