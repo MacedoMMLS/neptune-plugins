@@ -6,7 +6,7 @@ import { TextInput } from "@inrixia/lib/components/TextInput";
 import { SwitchSetting } from "@inrixia/lib/components/SwitchSetting";
 import { availableTags } from "@inrixia/lib/makeTags";
 
-const defaultFilenameFormat = "{artist} - {album} - {title}";
+const defaultFilenameFormat = "{albumArtist}/{date} {album}/{trackNumber} {title}";
 export const settings = getSettings({
 	desiredDownloadQuality: AudioQuality.HiRes,
 	defaultDownloadPath: "",
