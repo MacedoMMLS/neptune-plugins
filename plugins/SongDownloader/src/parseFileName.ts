@@ -4,7 +4,12 @@ import { settings } from "./Settings";
 import type { PathInfo } from "@inrixia/lib/native/downloadTrack.native";
 
 const unsafeCharacters = /[\/:*?"<>|]/g;
-const sanitizeFilename = (filename: string): string => filename.replace(unsafeCharacters, "_");
+const sanitizeFilename = (filename: string): string => filename.replace(unsafeCharacters, "");
+const formatTrackNumber = (trackNumber: string | undefined): string | undefined => {
+	if (!trackNumber) return undefined;
+	const num = parseInt(trackNumber, 10);
+	return isNaN(num) ? trackNumber : num.toString().padStart(2, "0");
+};
 
 export const parseExtension = (filename: string) => filename.match(/\.([0-9a-z]+)(?:[\?#]|$)/i)?.[1] ?? undefined;
 const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: ExtendedPlayackInfo): string => {
@@ -13,6 +18,21 @@ const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: Ex
 		let tagValue = tags[tag];
 		if (Array.isArray(tagValue)) tagValue = tagValue[0];
 		if (tagValue === undefined) continue;
+		// Format track number to double digits
+		if (tag === "trackNumber") {
+			tagValue = formatTrackNumber(tagValue) || tagValue;
+		}
+		// Format date to only include the year
+		if (tag === "date" && typeof tagValue === "string") {
+			try {
+				const date = new Date(tagValue);
+				if (!isNaN(date.getTime())) {
+					tagValue = date.getFullYear().toString();
+				}
+			} catch (error) {
+				console.warn(`Failed to parse date tag: ${tagValue}`, error);
+			}
+		}
 		base = base.replaceAll(`{${tag}}`, sanitizeFilename(tagValue));
 	}
 	switch (manifestMimeType) {
