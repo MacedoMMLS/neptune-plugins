@@ -6,13 +6,13 @@ import { TextInput } from "@inrixia/lib/components/TextInput";
 import { SwitchSetting } from "@inrixia/lib/components/SwitchSetting";
 import { availableTags } from "@inrixia/lib/makeTags";
 
-const defaultFilenameFormat = "{albumArtist}/{date} {album}/{trackNumber} {title}";
+const defaultFilenameFormat = "";
 export const settings = getSettings({
 	desiredDownloadQuality: AudioQuality.HiRes,
 	defaultDownloadPath: "",
 	alwaysUseDefaultPath: false,
 	filenameFormat: defaultFilenameFormat,
-	useRealMAX: true,
+	useRealMAX: false,
 });
 if (settings.filenameFormat === "") settings.filenameFormat = defaultFilenameFormat;
 if (settings.filenameFormat === "artist - album - title") settings.filenameFormat = defaultFilenameFormat;
