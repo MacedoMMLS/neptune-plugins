@@ -13,16 +13,6 @@ const filePathFromInfo = ({ tags }: MetaTags, { manifest, manifestMimeType }: Ex
 		let tagValue = tags[tag];
 		if (Array.isArray(tagValue)) tagValue = tagValue[0];
 		if (tagValue === undefined) continue;
-		if (tag === "year") {
-			const match = tagValue.match(/\d{4}/);
-			tagValue = match ? match[0] : tagValue;
-		}
-		if (tag === "tracknumber") {
-			const trackNum = parseInt(tagValue, 10);
-			if (!isNaN(trackNum)) {
-				tagValue = trackNum.toString().padStart(2, "0");
-			}
-		}		
 		base = base.replaceAll(`{${tag}}`, sanitizeFilename(tagValue));
 	}
 	switch (manifestMimeType) {
